@@ -1,6 +1,6 @@
 <div class="container">
   <h2>ECO Prio List</h2>
-  <input class="form-control" id="myInput" type="text" placeholder="Search...">
+  <input [(ngModel)]="ecoSearchText" class="form-control" type="text" placeholder="Search for ECO...">
   <br>
   <table class="table table-bordered table-striped">
     <thead>
@@ -12,7 +12,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let eco of ecos">
+      <tr *ngFor="let eco of ecos | filter : ecoSearchText">
         <td>{{ eco.eco_number }}</td>
         <td>{{ eco.project }}</td>
         <td>{{ eco.department }}</td>
@@ -21,14 +21,3 @@
     </tbody>
   </table>
 </div>
-
-<script>
-  $(document).ready(function () {
-    $("#myInput").on("keyup", function () {
-      var value = $(this).val().toLowerCase();
-      $("#myTable tr").filter(function () {
-        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-      });
-    });
-  });
-</script>
