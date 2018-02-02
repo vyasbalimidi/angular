@@ -1,0 +1,34 @@
+<div class="container">
+  <h2>ECO Prio List</h2>
+  <input class="form-control" id="myInput" type="text" placeholder="Search...">
+  <br>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>ECO</th>
+        <th>Project</th>
+        <th>Department</th>
+        <th>Nomenclature</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let eco of ecos">
+        <td>{{ eco.eco_number }}</td>
+        <td>{{ eco.project }}</td>
+        <td>{{ eco.department }}</td>
+        <td>{{ eco.nomenclature }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  $(document).ready(function () {
+    $("#myInput").on("keyup", function () {
+      var value = $(this).val().toLowerCase();
+      $("#myTable tr").filter(function () {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });
+</script>
