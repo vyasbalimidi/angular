@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Eco } from './Eco';
+import { Eco } from './eco';
 
 @Pipe({
     name: 'filter'

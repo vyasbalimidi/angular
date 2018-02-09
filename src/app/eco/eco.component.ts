@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Eco } from '../Eco';
+import { Eco } from '../eco';
 import { EcoService } from '../eco.service';
 
 @Component({

@@ -1,4 +1,4 @@
-export class Eco{
+export class Eco {
     eco_number: string;
     status: string;
     project: string;
