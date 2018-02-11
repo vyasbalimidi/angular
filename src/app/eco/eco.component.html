@@ -1,23 +1,16 @@
-<div class="container">
-  <h2>ECO Prio List</h2>
-  <input [(ngModel)]="ecoSearchText" class="form-control" type="text" placeholder="Search for ECO...">
-  <br>
-  <table class="table table-bordered table-striped">
-    <thead>
-      <tr>
-        <th>ECO</th>
-        <th>Project</th>
-        <th>Department</th>
-        <th>Nomenclature</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let eco of ecos | filter : ecoSearchText">
-        <td>{{ eco.eco_number }}</td>
-        <td>{{ eco.project }}</td>
-        <td>{{ eco.department }}</td>
-        <td>{{ eco.nomenclature }}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<input [(ngModel)]="ecoSearchText" class="form-control" type="text" placeholder="Search for ECO...">
+<br>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>ECO</th>
+      <th>Project</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let eco of ecos | filter : ecoSearchText">
+      <td>{{ eco.eco_number }}</td>
+      <td>{{ eco.project }}</td>
+    </tr>
+  </tbody>
+</table>

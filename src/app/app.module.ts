@@ -8,12 +8,14 @@ import { EcoService } from './eco.service';
 import { EcoFilterPipe } from './eco-filter.pipe';
 
 import { HttpClientModule } from '@angular/common/http';
+import { EcoSheetComponent } from './eco-sheet/eco-sheet.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EcoComponent,
-    EcoFilterPipe
+    EcoFilterPipe,
+    EcoSheetComponent
   ],
   imports: [
     BrowserModule,
