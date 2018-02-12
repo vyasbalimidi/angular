@@ -1,26 +1,28 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+
+import { TableModule } from 'primeng/table';
+import { TabViewModule } from 'primeng/tabview';
 
 import { AppComponent } from './app.component';
 import { EcoComponent } from './eco/eco.component';
-import { EcoService } from './eco.service';
-import { EcoFilterPipe } from './eco-filter.pipe';
-
-import { HttpClientModule } from '@angular/common/http';
 import { EcoSheetComponent } from './eco-sheet/eco-sheet.component';
+import { EcoService } from './eco.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     EcoComponent,
-    EcoFilterPipe,
     EcoSheetComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    TableModule,
+    TabViewModule
   ],
   providers: [EcoService],
   bootstrap: [AppComponent]

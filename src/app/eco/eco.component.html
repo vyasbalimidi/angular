@@ -1,16 +1,29 @@
-<input [(ngModel)]="ecoSearchText" class="form-control" type="text" placeholder="Search for ECO...">
-<br>
-<table class="table table-bordered table-striped">
-  <thead>
+<p-table #dt [columns]="cols" [value]="ecos" selectionMode="single" [(selection)]="selectedEco" [scrollable]="true" scrollHeight="600px"
+  [resizableColumns]="true">
+  <ng-template pTemplate="header" let-columns>
     <tr>
-      <th>ECO</th>
-      <th>Project</th>
+      <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+        {{ col.header }}
+      </th>
     </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let eco of ecos | filter : ecoSearchText">
-      <td>{{ eco.eco_number }}</td>
-      <td>{{ eco.project }}</td>
+    <tr>
+      <th *ngFor="let col of columns" [ngSwitch]="col.field">
+        <input *ngSwitchCase="'eco_number'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+        <input *ngSwitchCase="'department'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+      </th>
     </tr>
-  </tbody>
-</table>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr [pSelectableRow]="rowData">
+      <td *ngFor="let col of columns">
+        {{ rowData[col.field] }}
+      </td>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="summary">
+    <div style="text-align: left">
+      Selected ECO: {{selectedEco ? selectedEco.eco_number: '-'}}
+    </div>
+  </ng-template>
+</p-table>

@@ -10,14 +10,24 @@ import { EcoService } from '../eco.service';
 
 export class EcoComponent implements OnInit {
   ecos: Eco[];
+  cols: any[];
+  selectedEco: Eco;
 
   constructor(private ecoService: EcoService) { }
 
   ngOnInit() {
+    this.fillColumns()
     this.fillEcos()
   }
 
-  fillEcos(): void {
+  fillColumns() {
+    this.cols = [
+      { field: 'eco_number', header: 'ECO' },
+      { field: 'department', header: 'Department' }
+    ];
+  }
+
+  fillEcos() {
     this.ecoService.downloadEcos().subscribe(allEcos => this.ecos = allEcos)
   }
 }
