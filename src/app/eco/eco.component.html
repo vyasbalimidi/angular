@@ -1,9 +1,12 @@
+<ngx-loading [show]="downloading"></ngx-loading>
+
 <p-table #dt [columns]="cols" [value]="ecos" selectionMode="single" [(selection)]="selectedEco" [scrollable]="true" scrollHeight="600px"
-  [resizableColumns]="true">
+  [resizableColumns]="true" (onRowSelect)="onRowSelect($event)">
   <ng-template pTemplate="header" let-columns>
     <tr>
       <th *ngFor="let col of columns" [pSortableColumn]="col.field">
         {{ col.header }}
+        <p-sortIcon [field]="col.field"></p-sortIcon>
       </th>
     </tr>
     <tr>
@@ -13,6 +16,7 @@
       </th>
     </tr>
   </ng-template>
+
   <ng-template pTemplate="body" let-rowData let-columns="columns">
     <tr [pSelectableRow]="rowData">
       <td *ngFor="let col of columns">

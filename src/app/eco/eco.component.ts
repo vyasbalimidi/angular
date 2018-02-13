@@ -11,6 +11,8 @@ import { EcoService } from '../eco.service';
 export class EcoComponent implements OnInit {
   ecos: Eco[];
   cols: any[];
+
+  downloading: Boolean;
   selectedEco: Eco;
 
   constructor(private ecoService: EcoService) { }
@@ -28,6 +30,15 @@ export class EcoComponent implements OnInit {
   }
 
   fillEcos() {
-    this.ecoService.downloadEcos().subscribe(allEcos => this.ecos = allEcos)
+    this.downloading = true;
+    this.ecoService.downloadEcos().subscribe(
+      allEcos => {
+        this.ecos = allEcos;
+        this.downloading = false;
+      })
+  }
+
+  onRowSelect(event) {
+    console.log(event.data.eco_number);
   }
 }

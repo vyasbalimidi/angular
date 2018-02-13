@@ -3,6 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
+import { LoadingModule } from 'ngx-loading';
+
 import { TableModule } from 'primeng/table';
 import { TabViewModule } from 'primeng/tabview';
 
@@ -21,6 +23,7 @@ import { EcoService } from './eco.service';
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    LoadingModule,
     TableModule,
     TabViewModule
   ],
