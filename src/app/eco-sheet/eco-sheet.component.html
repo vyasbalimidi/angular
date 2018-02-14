@@ -1,9 +1,13 @@
+<ngx-loading [show]="downloading"></ngx-loading>
+
 <div class="jumbotron text-center">
   <h1>{{ ecoNumber }}</h1>
 </div>
 
-<p-tabView>
-  <p-tabPanel header="Cover Page">
-    Welcome to Cover Page
-  </p-tabPanel>
-</p-tabView>
+<p-panel header="Cover Page" [toggleable]="true">
+  Nomenclature: {{ page.dmu.description }}
+  <br>PASS Project: {{ page.dmu.project_number_pass }}
+  <br> AEI: {{ page.dmu.aei }}
+  <br> AHB: {{ page.dmu.ahb }}
+  <br> Change Request: {{ page.dmu.kaa }}
+</p-panel>

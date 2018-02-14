@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 
-import { Eco } from '../eco';
-import { EcoService } from '../eco.service';
+import { Eco } from '../models/eco';
+import { EcoService } from '../services/eco.service';
 
 @Component({
   selector: 'app-eco',
@@ -18,7 +18,7 @@ export class EcoComponent implements OnInit {
   selectedEco: Eco;
 
   constructor(
-    private ecoService: EcoService,
+    private service: EcoService,
     private router: Router
   ) { }
 
@@ -36,7 +36,7 @@ export class EcoComponent implements OnInit {
 
   fillEcos() {
     this.downloading = true;
-    this.ecoService.downloadEcos().subscribe(
+    this.service.downloadEcos().subscribe(
       allEcos => {
         this.ecos = allEcos;
         this.downloading = false;
