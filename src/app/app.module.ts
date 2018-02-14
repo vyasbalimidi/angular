@@ -11,13 +11,17 @@ import { TabViewModule } from 'primeng/tabview';
 import { AppComponent } from './app.component';
 import { EcoComponent } from './eco/eco.component';
 import { EcoSheetComponent } from './eco-sheet/eco-sheet.component';
+import { PageNotFoundComponent } from './not-found.component';
 import { EcoService } from './eco.service';
+
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     EcoComponent,
-    EcoSheetComponent
+    EcoSheetComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -25,9 +29,11 @@ import { EcoService } from './eco.service';
     HttpClientModule,
     LoadingModule,
     TableModule,
-    TabViewModule
+    TabViewModule,
+    AppRoutingModule
   ],
   providers: [EcoService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

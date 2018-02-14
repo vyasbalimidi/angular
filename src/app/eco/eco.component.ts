@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'
+
 import { Eco } from '../eco';
 import { EcoService } from '../eco.service';
 
@@ -15,7 +17,10 @@ export class EcoComponent implements OnInit {
   downloading: Boolean;
   selectedEco: Eco;
 
-  constructor(private ecoService: EcoService) { }
+  constructor(
+    private ecoService: EcoService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.fillColumns()
@@ -39,6 +44,7 @@ export class EcoComponent implements OnInit {
   }
 
   onRowSelect(event) {
-    console.log(event.data.eco_number);
+    let ecoNum = event.data.eco_number;
+    this.router.navigate(['/eco-sheet/' + ecoNum]);
   }
 }
