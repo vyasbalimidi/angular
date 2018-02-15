@@ -9,6 +9,7 @@ import { LoadingModule } from 'ngx-loading';
 import { TableModule } from 'primeng/table';
 import { TabViewModule } from 'primeng/tabview';
 import { PanelModule } from 'primeng/panel';
+import { CardModule } from 'primeng/card';
 
 import { AppComponent } from './app.component';
 import { EcoComponent } from './eco/eco.component';
@@ -36,7 +37,8 @@ import { AppRoutingModule } from './app-routing.module';
     LoadingModule,
     TableModule,
     TabViewModule,
-    PanelModule
+    PanelModule,
+    CardModule
   ],
   providers: [EcoService, EcoSheetService],
   bootstrap: [AppComponent]

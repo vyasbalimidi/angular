@@ -1,0 +1,29 @@
+.eco-sheet-header{
+    height: 50px;
+    padding-top: 10px;
+    background-color: #374C61;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.attribute {
+    font-size: 12px;
+    color: #758AA0;
+}
+
+.attribute-value {
+    font-size: 13px;
+    font-weight: 400;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.img-small {
+    height: 80px;
+    width: 60px;
+}

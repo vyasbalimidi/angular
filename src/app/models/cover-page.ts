@@ -1,4 +1,4 @@
-class Dmu {
+export interface Dmu {
     requestor_pass: string;
     description: string;
     long_description: string;
@@ -20,7 +20,7 @@ class Dmu {
     proposed_release_date: Date;
 }
 
-class Smaragd {
+export interface Smaragd {
     release_state: string;
 
     introduction_advice: string;
@@ -41,10 +41,10 @@ class Smaragd {
     last_update: Date;
 }
 
-class Signatures {
+export interface Signature {
     title: string;
     title_by_locale: string;
-    created_date: string;
+    created_date: Date;
 
     user_id: string;
     user_name: string;
@@ -54,7 +54,7 @@ class Signatures {
 export class CoverPage {
     dmu: Dmu;
     smaragd: Smaragd;
-    signatures: Signatures[];
+    signatures: Signature[];
 
     eco_number: string;
     status: string;

@@ -7,6 +7,7 @@ export class Endpoint {
     public static headers = {
         headers: new HttpHeaders({
             'Content-Type': 'application/json; charset=utf-8',
+            'Accept-Language': 'en',
             'SM_USER': 'vbalimi'
         })
     };

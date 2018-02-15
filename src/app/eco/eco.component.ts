@@ -40,7 +40,11 @@ export class EcoComponent implements OnInit {
       allEcos => {
         this.ecos = allEcos;
         this.downloading = false;
-      })
+      },
+      error => {
+        this.downloading = false;
+        console.log(error);
+      });
   }
 
   onRowSelect(event) {

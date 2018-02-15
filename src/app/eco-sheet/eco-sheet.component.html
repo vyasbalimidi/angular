@@ -1,13 +1,132 @@
 <ngx-loading [show]="downloading"></ngx-loading>
 
-<div class="jumbotron text-center">
-  <h1>{{ ecoNumber }}</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 eco-sheet-header">
+      {{ ecoNumber }}
+    </div>
+  </div>
 </div>
 
 <p-panel header="Cover Page" [toggleable]="true">
-  Nomenclature: {{ page.dmu.description }}
-  <br>PASS Project: {{ page.dmu.project_number_pass }}
-  <br> AEI: {{ page.dmu.aei }}
-  <br> AHB: {{ page.dmu.ahb }}
-  <br> Change Request: {{ page.dmu.kaa }}
+  <div class="row">
+    <div class="col-md-3">
+      <span class="attribute">Nomenclature</span>
+      <br>
+      <span class="attribute-value">{{ page?.dmu?.description }};{{ page?.dmu?.long_description }}</span>
+    </div>
+    <div class="col-md-3">
+      <span class="attribute">Requestor PASS</span>
+      <br>
+      <span class="attribute-value">{{ page?.dmu?.requestor_pass }}</span>
+    </div>
+    <div class="col-md-3">
+      <span class="attribute">Project number PASS</span>
+      <br>
+      <span class="attribute-value">{{ page?.dmu?.project_number_pass }}</span>
+    </div>
+    <div class="col-md-3">
+      <span class="attribute">Engineering Effectivity Date</span>
+      <br>
+      <span class="attribute-value">{{ page?.dmu?.engineering_effectivity_date | date }}</span>
+    </div>
+  </div>
+
+  <hr>
+  <div class="row">
+    <div class="col-md-3">
+      <span class="attribute">Revision State</span>
+      <br>
+      <span class="attribute-value">{{ page?.dmu?.revision_state }}</span>
+    </div>
+    <div class="col-md-3">
+      <span class="attribute">Priority</span>
+      <br>
+      <span class="attribute-value">{{ page?.dmu?.priority_by_locale }}</span>
+    </div>
+    <div class="col-md-3">
+      <span class="attribute">Release state SMARAGD</span>
+      <br>
+      <span class="attribute-value">{{ page?.smaragd?.release_state }}</span>
+    </div>
+    <div class="col-md-3">
+      <span class="attribute">Extension Date</span>
+      <br>
+      <span class="attribute-value">{{ page?.smaragd?.extension_date | date }}</span>
+    </div>
+  </div>
+
+  <hr>
+  <div class="row">
+    <div class="col-md-3">
+      <span class="attribute">Introduction Advice</span>
+      <br>
+      <span class="attribute-value">{{ page?.smaragd?.introduction_advice_by_locale }}</span>
+    </div>
+    <div class="col-md-3">
+      <span class="attribute">Detailed Advice</span>
+      <br>
+      <span class="attribute-value">{{ page?.smaragd?.detailed_advice }}</span>
+    </div>
+    <div class="col-md-3">
+      <span class="attribute">Cancellation Date</span>
+      <br>
+      <span class="attribute-value">{{ page?.smaragd?.cancellation_date | date }}</span>
+    </div>
+    <div class="col-md-3">
+      <span class="attribute">Cancellation Order</span>
+      <br>
+      <span class="attribute-value">{{ page?.smaragd?.cancellation_order }}</span>
+    </div>
+  </div>
+
+  <hr>
+  <div class="row">
+    <div class="col-md-3">
+      <span class="attribute">AEI</span>
+      <br>
+      <span class="attribute-value">{{ page?.dmu?.aei }}</span>
+    </div>
+    <div class="col-md-3">
+      <span class="attribute">ZEUS</span>
+      <br>
+      <span class="attribute-value">{{ page?.dmu?.zeus }}</span>
+    </div>
+    <div class="col-md-3">
+      <span class="attribute">TAA</span>
+      <br>
+      <span class="attribute-value">{{ page?.dmu?.taa }}</span>
+    </div>
+    <div class="col-md-3">
+      <span class="attribute">AHB</span>
+      <br>
+      <span class="attribute-value">{{ page?.dmu?.ahb }}</span>
+    </div>
+  </div>
 </p-panel>
+
+<div *ngIf="signaturesPresent">
+  <p-panel header="Signatures" [toggleable]="true">
+    <div class="row">
+      <div *ngFor="let signature of page?.signatures" class="col-md-4">
+        <p-card [title]="signature.title_by_locale" [subtitle]="signature.user_name" [style]="{width: '300px'}" styleClass="ui-card-shadow">
+          <div class="row">
+            <div class="col-md-4">
+              <span class="attribute">Date</span>
+              <br>
+              <span class="attribute-value">{{ signature?.created_date | date }}</span>
+            </div>
+            <div class="col-md-4">
+              <span class="attribute">Department</span>
+              <br>
+              <span class="attribute-value">{{ signature?.department }}</span>
+            </div>
+            <div class="col-md-4 img-small">
+              <img src="http://intra-wiw.e.corpintra.net/wiw/photos?uid={{signature.user_id}}" class="rounded">
+            </div>
+          </div>
+        </p-card>
+      </div>
+    </div>
+  </p-panel>
+</div>
