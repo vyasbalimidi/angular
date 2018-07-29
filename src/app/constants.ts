@@ -1,8 +1,8 @@
 import { HttpHeaders } from '@angular/common/http';
 
 export class Endpoint {
-    public static eco = "http://53.88.75.34:9081/nc0/api/safira/eco/find?filter-tasks=present";
-    public static coverPage = "http://53.88.75.34:9081/nc0/api/safira/eco/cover-page?eco-number=";
+    public static eco = "http://www.mocky.io/v2/5b5dfaec32000010001cfa9d";
+    public static coverPage = "http://www.mocky.io/v2/5b5dfcd632000010001cfa9e";
 
     public static headers = {
         headers: new HttpHeaders({
