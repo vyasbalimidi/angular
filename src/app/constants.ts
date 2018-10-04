@@ -1,8 +1,8 @@
 import { HttpHeaders } from '@angular/common/http';
 
 export class Endpoint {
-    public static eco = "http://www.mocky.io/v2/5b5dfaec32000010001cfa9d";
-    public static coverPage = "http://www.mocky.io/v2/5b5dfcd632000010001cfa9e";
+    public static eco = "http://localhost:3000/all_ecos";
+    public static coverPage = "http://localhost:3000/";
 
     public static headers = {
         headers: new HttpHeaders({
